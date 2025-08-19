@@ -1,5 +1,5 @@
 # LinuxToNetDeploy
-LinuxToNetDeploy
+再linux 下部署 Net Core 服务
 #换源命令 sudo nano /etc/apt/sources.list
 # 替换为阿里云源，例如：
 ```text
@@ -54,6 +54,8 @@ server_name localhost 127.0.0.1; #设置绑定的主机名、域名或ip地址
     # Esc键退出插入模式 输入:（冒号），进入命令行模式。输入wq
 
 ## 下面保存xxx.service
+参考地址
+https://learn.microsoft.com/zh-cn/troubleshoot/developer/webapps/aspnetcore/practice-troubleshoot-linux/2-3-configure-aspnet-core-application-start-automatically
 ---------------
 ```text
 [Unit]
