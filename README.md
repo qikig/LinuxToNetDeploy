@@ -47,7 +47,7 @@ server_name localhost 127.0.0.1; #设置绑定的主机名、域名或ip地址
 
 ## 下面保存xxx.service
 ---------------
-```json
+```text
 [Unit]
 Description=Example .NET Web API App running on Ubuntu
 
