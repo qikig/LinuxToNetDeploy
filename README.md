@@ -43,6 +43,7 @@ server_name localhost 127.0.0.1; #设置绑定的主机名、域名或ip地址
 
 ## 下面保存xxx.service
 ---------------
+```json
 [Unit]
 Description=Example .NET Web API App running on Ubuntu
 
@@ -56,7 +57,7 @@ SyslogIdentifier=dotnet-example
 User=www-data
 Environment=ASPNETCORE_ENVIRONMENT=Production
 Environment=DOTNET_PRINT_TELEMETRY_MESSAGE=false
-
+Environment=ASPNETCORE_URLS=http://localhost:5009
 [Install]
 WantedBy=multi-user.target
 ---------------
