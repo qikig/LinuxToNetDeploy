@@ -12,7 +12,8 @@ LinuxToNetDeploy
 # nano 命令 Ctrl + O 保存
 #          Ctrl + X 退出
 
-# 1. linux 安装net sdk https://learn.microsoft.com/zh-cn/dotnet/core/install/linux
+# 1. linux 安装net sdk 
+  #https://learn.microsoft.com/zh-cn/dotnet/core/install/linux
 # 2. ubnntu 20 需要创建 连接，大于20 版本不需要
 ```texxt
     1.
@@ -87,7 +88,7 @@ WantedBy=multi-user.target
 ```
 
 # 运维相关命令 
-
+```text
  查看服务日志 journalctl -u myfirstwebapp
  修改文件权限  chmod 777 /etc/xxx/
  查看 某个进程 ps aux | grep xxx
@@ -96,5 +97,4 @@ WantedBy=multi-user.target
 
  复制文件 cp /path/to/source/file.txt /home/username/documents/
  移动文件 mv [源文件路径] [目标目录]
-
-
+```
