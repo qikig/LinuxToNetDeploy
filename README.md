@@ -2,11 +2,13 @@
 LinuxToNetDeploy
 #换源命令 sudo nano /etc/apt/sources.list
 # 替换为阿里云源，例如：
-# deb http://mirrors.aliyun.com/ubuntu/ focal main restricted universe multiverse
-# deb http://mirrors.aliyun.com/ubuntu/ focal-security main restricted universe multiverse
-# deb http://mirrors.aliyun.com/ubuntu/ focal-updates main restricted universe multiverse
-# deb http://mirrors.aliyun.com/ubuntu/ focal-proposed main restricted universe multiverse
-# deb http://mirrors.aliyun.com/ubuntu/ focal-backports main restricted universe multiverse
+```text
+ deb http://mirrors.aliyun.com/ubuntu/ focal main restricted universe multiverse
+ deb http://mirrors.aliyun.com/ubuntu/ focal-security main restricted universe multiverse
+ deb http://mirrors.aliyun.com/ubuntu/ focal-updates main restricted universe multiverse
+ deb http://mirrors.aliyun.com/ubuntu/ focal-proposed main restricted universe multiverse
+ deb http://mirrors.aliyun.com/ubuntu/ focal-backports main restricted universe multiverse
+```
 # nano 命令 Ctrl + O 保存
 #          Ctrl + X 退出
 
@@ -25,6 +27,7 @@ LinuxToNetDeploy
 #                        开机自启：sudo systemctl enable nginx
 #                        查看配置正确：sudo nginx -t
 ## nginx 配置基本配置样例
+```json
 server {
 listen 80; #设置监听的端口
 server_name localhost 127.0.0.1; #设置绑定的主机名、域名或ip地址
@@ -36,6 +39,7 @@ server_name localhost 127.0.0.1; #设置绑定的主机名、域名或ip地址
         proxy_pass  http://127.0.0.1:5001/swagger/;  
     }
 }
+```
 ## 4.配置net启动
 # net启动服务文件 可以用sudo vi /etc/systemd/system/myfirstwebapp.service  VI命令编辑添加
 # vi 常用命令 i 光标前，a 光标后插入
@@ -60,6 +64,7 @@ Environment=DOTNET_PRINT_TELEMETRY_MESSAGE=false
 Environment=ASPNETCORE_URLS=http://localhost:5009
 [Install]
 WantedBy=multi-user.target
+```
 ---------------
 # sudo systemctl start myfirstwebapp.service 
 
