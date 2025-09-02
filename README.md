@@ -71,9 +71,11 @@ SyslogIdentifier=dotnet-example
 User=www-data
 #配置启动环境 Development
 Environment=ASPNETCORE_ENVIRONMENT=Production
+#禁用 .NET 遥测日志，减少噪音
 Environment=DOTNET_PRINT_TELEMETRY_MESSAGE=false
+#配置启动端口
 Environment=ASPNETCORE_URLS=http://localhost:5009
-#输出日志
+#输出日志 最后禁用 可以通过 journalctl -u 服务名 --since "5 minutes ago" 来查看
 #StandardOutput=append:/var/log/webapp/webapp2.log
 #StandardError=inherit
 [Install]
