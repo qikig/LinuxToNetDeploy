@@ -53,7 +53,7 @@ server_name localhost 127.0.0.1; #设置绑定的主机名、域名或ip地址
 # vi 常用命令 i 光标前，a 光标后插入
     # Esc键退出插入模式 输入:（冒号），进入命令行模式。输入wq
 
-## 下面保存xxx.service
+## 下面保存xxx.service 修改服务文件通过 systemctl daemon-reload 加载
 参考地址
 https://learn.microsoft.com/zh-cn/troubleshoot/developer/webapps/aspnetcore/practice-troubleshoot-linux/2-3-configure-aspnet-core-application-start-automatically
 ---------------
