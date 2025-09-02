@@ -11,11 +11,31 @@
 ```
 # nano 命令 Ctrl + O 保存
 #          Ctrl + X 退出
+# 推荐安装 微软的Edit 文本编辑工具好用，安装参考 https://bohu.net/blog/10245/
+```text
+# 安装 Zstandard 
+apt install zstd
+
+# 下载软件包
+wget https://github.com/microsoft/edit/releases/download/v1.2.0/edit-1.2.0-x86_64-linux-gnu.tar.zst
+
+# 解压缩到用户的当前目录
+tar xvf edit-1.2.0-x86_64-linux-gnu.tar.zst
+
+# 将其移动到 bin 目录中以便随时访问，请相应调整路径
+mv edit /usr/local/bin/edit
+
+# 查看版本号
+edit -v
+
+# 启动编辑器
+edit
+```
 
 # 1. linux 安装net sdk 
   #https://learn.microsoft.com/zh-cn/dotnet/core/install/linux
 # 2. ubnntu 20 需要创建 连接，大于20 版本不需要
-```texxt
+```text
     1.
       wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
       sudo dpkg -i packages-microsoft-prod.deb
