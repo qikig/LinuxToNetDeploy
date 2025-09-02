@@ -69,9 +69,13 @@ RestartSec=10
 KillSignal=SIGINT
 SyslogIdentifier=dotnet-example
 User=www-data
+#配置启动环境 Development
 Environment=ASPNETCORE_ENVIRONMENT=Production
 Environment=DOTNET_PRINT_TELEMETRY_MESSAGE=false
 Environment=ASPNETCORE_URLS=http://localhost:5009
+#输出日志
+#StandardOutput=append:/var/log/webapp/webapp2.log
+#StandardError=inherit
 [Install]
 WantedBy=multi-user.target
 ```
