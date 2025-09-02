@@ -102,7 +102,12 @@ WantedBy=multi-user.target
  查看 某个进程 ps aux | grep xxx
  访问网址 curl http：//127.0.0.1/
  查看文件 cat xxx.TXT 或者 less xx.txt
-
+ 查看文件大小 du -h 文件名
  复制文件 cp /path/to/source/file.txt /home/username/documents/
  移动文件 mv [源文件路径] [目标目录]
+
+将文件复制到 Linux
+pscp -i <private key path> <local file to upload> user@host:<Linux path to save>
+若要将 c：\web\publish.zip 文件复制到 Linux 中的用户主目录
+pscp -i d:\secure\myprivatekey.ppk c:\web\publish.zip <UserName>@buggyamb:<Linux path to save>
 ```
