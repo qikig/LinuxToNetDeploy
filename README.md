@@ -59,6 +59,21 @@ sudo apt install nginx
 server {
 listen 80; #设置监听的端口
 server_name localhost 127.0.0.1; #设置绑定的主机名、域名或ip地址
+        # 证书
+        #ssl_certificate           /etc/ssl/certs/testCert.crt;
+        #ssl_certificate_key       /etc/ssl/certs/testCert.key;
+        #ssl_session_timeout       1d;
+        #ssl_protocols             TLSv1.2 TLSv1.3;
+        #ssl_prefer_server_ciphers off;
+        #ssl_ciphers               ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384;
+        #ssl_session_cache         shared:SSL:10m;
+        #ssl_session_tickets       off;
+        #ssl_stapling              off;
+
+        add_header X-Frame-Options DENY;
+        add_header X-Frame-Options "SAMEORIGIN";#免受点击劫持
+        add_header X-Content-Type-Options nosniff;#阻止 MIME 方式探查
+
     location / {
        root  /var/www/html/; #设置服务器默认网站的根目录位置,需要手动创建
         index index.html index.htm; #设置默认打开的文档
