@@ -153,3 +153,21 @@ pscp -i <private key path> <local file to upload> user@host:<Linux path to save>
 若要将 c：\web\publish.zip 文件复制到 Linux 中的用户主目录
 pscp -i d:\secure\myprivatekey.ppk c:\web\publish.zip <UserName>@buggyamb:<Linux path to save>
 ```
+docker-run-rancher
+国内安装
+
+```text
+root@ksd:~# mkdir -p /data/rancher/k3s/agent/images/
+root@ksd:~# docker run --rm --entrypoint "" -v $(pwd):/output rancher/rancher:v2.9.0 cp /var/lib/rancher/k3s/agent/images/k3s-airgap-images.tar /output/k3s-airgap-images.tar
+root@ksd:~# ls
+docker.sh  k3s-airgap-images.tar  snap
+root@ksd:~# cp k3s-airgap-images.tar /data/rancher/k3s/agent/images/
+
+docker run -d --restart=unless-stopped --privileged \
+    -p 10080:80 -p 10443:443  \
+    -e CATTLE_SYSTEM_DEFAULT_REGISTRY=registry.cn-hangzhou.aliyuncs.com \
+    -e CATTLE_BOOTSTRAP_PASSWORD=rancher \
+    -v /data/rancher:/var/lib/rancher \
+    registry.cn-hangzhou.aliyuncs.com/rancher/rancher:v2.9.0
+8b62637c72cfb4b3704d5811f8e9bbd37bd05a93c9155465e776b5e0481f5465
+```
