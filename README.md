@@ -155,7 +155,7 @@ pscp -i d:\secure\myprivatekey.ppk c:\web\publish.zip <UserName>@buggyamb:<Linux
 ```
 docker-run-rancher
 国内安装
-
+https://forums.rancher.cn/t/docker-run-rancher-rancher-mirrored-pause/3546/2
 ```text
 root@ksd:~# mkdir -p /data/rancher/k3s/agent/images/
 root@ksd:~# docker run --rm --entrypoint "" -v $(pwd):/output rancher/rancher:v2.9.0 cp /var/lib/rancher/k3s/agent/images/k3s-airgap-images.tar /output/k3s-airgap-images.tar
