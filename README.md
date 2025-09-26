@@ -147,6 +147,8 @@ WantedBy=multi-user.target
  查看文件大小 du -h 文件名
  复制文件 cp /path/to/source/file.txt /home/username/documents/
  移动文件 mv [源文件路径] [目标目录]
+ 清理journal日志 只保留近一周的日志 journalctl --vacuum-time=1w
+ 查找大文件 find /path/to/search -type f -size +100M
 
 将文件复制到 Linux
 pscp -i <private key path> <local file to upload> user@host:<Linux path to save>
