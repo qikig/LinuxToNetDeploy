@@ -173,3 +173,6 @@ docker run -d --restart=unless-stopped --privileged \
     registry.cn-hangzhou.aliyuncs.com/rancher/rancher:v2.9.0
 8b62637c72cfb4b3704d5811f8e9bbd37bd05a93c9155465e776b5e0481f5465
 ```
+注册服务
+ .\npc.exe install
+ net start npc
