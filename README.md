@@ -141,7 +141,8 @@ WantedBy=multi-user.target
 ```text
  查看服务日志 journalctl -u myfirstwebapp
  修改文件权限  chmod 777 /etc/xxx/
- 给程序目录www权限 sudo chown -R www-data:www-data /path/to/your/app
+ 给程序目录www用户权限 sudo chown -R www-data:www-data /path/to/your/app
+ chmod -R 755 /path/to/your/app
  查看 某个进程 ps aux | grep xxx
  访问网址 curl http：//127.0.0.1/
  查看文件 cat xxx.TXT 或者 less xx.txt
