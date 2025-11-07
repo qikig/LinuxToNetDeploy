@@ -201,4 +201,16 @@ sc stop 服务名
 
 sc start 服务名
 
+jenkins 发布到windows的问题
+Source files
+/var/lib/jenkins/workspace/testweb 下的路径 jenkins下wordkspace/项目目录下的 路径
+xx/xx//bin/Release/net8.0/publish/**
 
+Remove prefix
+填写Source files 一样的，要不会再服务器端创建目录
+
+SSH Servers
+Remote Directory
+要填写/  这对应的就c盘
+/web
+对应c:/web/
