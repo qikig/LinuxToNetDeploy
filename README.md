@@ -178,3 +178,27 @@ docker run -d --restart=unless-stopped --privileged \
 注册服务
  .\npc.exe install
  net start npc
+
+.NET 6 以上的 windows 服务错误 
+
+配置文件路径不正确，create host builder 的时候加入一些参数
+```text
+var options = new WebApplicationOptions
+            {
+                Args = args,
+                ContentRootPath = WindowsServiceHelpers.IsWindowsService()
+        ? AppContext.BaseDirectory
+        : default
+            };
+            var builder = WebApplication.CreateBuilder(args);
+            builder.Host.UseWindowsService();
+```
+sc create Service binPath="C:\Service.exe" start= auto displayname="Service"
+
+sc delete Service
+
+sc stop 服务名
+
+sc start 服务名
+
+
