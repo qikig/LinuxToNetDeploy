@@ -192,6 +192,7 @@ var options = new WebApplicationOptions
             };
             var builder = WebApplication.CreateBuilder(args);
             builder.Host.UseWindowsService();
+在sc命令中，=号前面不能有空格，而=号后面必须有一个空格，切记。另外要以管理员的身份打开命令行。
 ```
 sc create Service binPath="C:\Service.exe" start= auto displayname="Service"
 
