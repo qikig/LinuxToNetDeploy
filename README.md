@@ -215,3 +215,7 @@ Remote Directory
 要填写/  这对应的就c盘
 /web
 对应c:/web/
+
+#linux 单文件运行 已经按照了skd和运行时 出现.NET location: Not found
+ 设置 .net 安装路径 export DOTNET_ROOT=/usr/share/dotnet    
+
