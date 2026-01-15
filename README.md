@@ -217,7 +217,7 @@ Remote Directory
 对应c:/web/
 
 #linux 单文件框架依赖 运行 已经安装了skd和运行时 出现.NET location: Not found
- 永久地添加命令 nano ~/.bashrc
+ 永久地添加命令 nano ~/.bashrc  生效 source ~/.bashrc 
  设置 .net 安装路径 export DOTNET_ROOT=/usr/share/dotnet    
 
 如何dotnet命令不起作用可以设置环境变量指定目录
