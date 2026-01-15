@@ -220,3 +220,5 @@ Remote Directory
  永久地添加命令 nano ~/.bashrc
  设置 .net 安装路径 export DOTNET_ROOT=/usr/share/dotnet    
 
+如何dotnet命令不起作用可以设置环境变量指定目录
+export PATH=$PATH:/usr/local/share/dotnet
