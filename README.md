@@ -1,5 +1,5 @@
 # LinuxToNetDeploy
-再linux 下部署 Net Core 服务
+再linux 下部署 Net Core 服务   --Environment=Development
 #换源命令 sudo nano /etc/apt/sources.list
 # 替换为阿里云源，例如：
 ```text
