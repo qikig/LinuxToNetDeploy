@@ -218,7 +218,7 @@ Remote Directory
 
 .net 10 通过命令安装 会卸载之前的版本只保留net10,需要安装其他共存版本通过 脚本或者手动安装。
 
-#linux 单文件框架依赖 运行 已经安装了skd和运行时 出现.NET location: Not found
+# linux 单文件框架依赖 运行 已经安装了skd和运行时 出现.NET location: Not found
 
  永久地添加命令 nano ~/.bashrc  生效 source ~/.bashrc 
  
