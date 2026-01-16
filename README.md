@@ -10,7 +10,7 @@
  deb http://mirrors.aliyun.com/ubuntu/ focal-backports main restricted universe multiverse
 ```
 # nano 命令 Ctrl + O 保存
-#          Ctrl + X 退出
+#          Ctrl + X 退出 生效 source ~/.bashrc 
 # nano 命令用不来？ 推荐安装 微软的Edit 文本编辑工具好用，安装参考 https://bohu.net/blog/10245/
 ```text
 # 安装 Zstandard 
