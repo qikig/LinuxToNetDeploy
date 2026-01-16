@@ -235,9 +235,10 @@ export PATH=$PATH:/usr/local/share/dotnet
 参考脚本安装 https://learn.microsoft.com/zh-cn/dotnet/core/tools/dotnet-install-script
 
 service 可以指定路径
+```text
 Environment="DOTNET_ROOT=/opt/.dotnet"
 Environment=ASPNETCORE_ENVIRONMENT=Development
 Environment=DOTNET_PRINT_TELEMETRY_MESSAGE=false
 Environment=ASPNETCORE_URLS=http://localhost:7003
-
+```
 
