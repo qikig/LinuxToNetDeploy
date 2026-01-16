@@ -1,5 +1,5 @@
 # LinuxToNetDeploy
-再linux 下部署 Net Core 服务   --Environment=Development
+再linux 下部署 Net Core 服务   
 #换源命令 sudo nano /etc/apt/sources.list
 # 替换为阿里云源，例如：
 ```text
@@ -216,9 +216,22 @@ Remote Directory
 /web
 对应c:/web/
 
+.net 10 通过命令安装 会卸载之前的版本只保留net10,需要安装其他共存版本通过 脚本或者手动安装。
 #linux 单文件框架依赖 运行 已经安装了skd和运行时 出现.NET location: Not found
  永久地添加命令 nano ~/.bashrc  生效 source ~/.bashrc 
  设置 .net 安装路径 export DOTNET_ROOT=/usr/share/dotnet    
 
 如何dotnet命令不起作用可以设置环境变量指定目录
 export PATH=$PATH:/usr/local/share/dotnet
+
+./xxx --Environment=Development 指定运行环境
+
+注意问题，手动安装和通过脚本安装，如果是root用户 不要不安装目录放到root下，会有权限问题最好放其他路径比如 /opt
+参考脚本安装 https://learn.microsoft.com/zh-cn/dotnet/core/tools/dotnet-install-script
+service 可以指定路径
+Environment="DOTNET_ROOT=/opt/.dotnet"
+Environment=ASPNETCORE_ENVIRONMENT=Development
+Environment=DOTNET_PRINT_TELEMETRY_MESSAGE=false
+Environment=ASPNETCORE_URLS=http://localhost:7003
+
+
