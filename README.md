@@ -318,17 +318,27 @@ sudo rsync -av \
 exit
 ```
 部署可以选择远程SSH
+
 Transfer Set
+
 Source files
+
 src/Presentation/WebApi.Admin/bin/Release/net8.0/win-x64/publish/Mahjon.*
+
 Remove prefix
+
 src/Presentation/WebApi.Admin/bin/Release/net8.0/win-x64/publish
+
 Remote directory
+
 /publish
 
 发布到windows的问题
+
 Source files
+
 /var/lib/jenkins/workspace/testweb 下的路径 jenkins下wordkspace/项目目录下的 路径
+
 xx/xx//bin/Release/net8.0/publish/**
 
 Remove prefix
