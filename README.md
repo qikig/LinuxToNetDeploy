@@ -291,6 +291,10 @@ dotnet restore
 # 构建项目
 #dotnet build --configuration Release
 dotnet publish -c Release -r win-x64
+# 构建项目 PublishSingleFile单文件 self-contained false 框架依赖
+
+#dotnet publish -c Release -r linux-x64 -p:PublishSingleFile=true --self-contained false
+
 echo "Successfully!!!! ^ please see the file ."
 
 #复制 过滤文件和文件夹
