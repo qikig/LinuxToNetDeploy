@@ -201,7 +201,132 @@ sc stop 服务名
 
 sc start 服务名
 
-jenkins 发布到windows的问题
+# jenkins 发布
+Pipeline 示例
+```text
+pipeline {
+    agent any
+    stages {
+        stage('Checkout') {  // 检出代码
+            steps {
+                git(
+                    url: 'https://xxx/mahjong.git',
+                    branch: 'master',
+                    credentialsId: '6a764376-d214-4275-bfce-fa8e8ce0c667',
+                )
+            }
+        }
+        stage('Restore') {
+            steps {
+                sh "dotnet --info"
+               // sh 'dotnet restore /var/lib/jenkins/workspace/prod/testPipeline/src/Presentation/WebApi.Admin/Mahjon.WebApi.Admin.csproj'
+            }
+        }
+        stage('Build') {
+            steps {
+                sh "ls" // 列出当前目录的内容
+                //sh "dotnet publish /var/lib/jenkins/workspace/prod/testPipeline/src/Presentation/WebApi.Admin/Mahjon.WebApi.Admin.csproj -c Release -r linux-x64 -p:PublishSingleFile=true --self-contained false"
+            }
+        }
+        stage('Deploy') {
+            // 部署
+                steps {
+                     echo "当前工作目录: ${WORKSPACE}"
+                     dir("${WORKSPACE}/src/Presentation/WebApi.Admin/") {
+                        sh "ls" // 列出当前目录的内容
+                    }
+                    //sh 'cd /var/lib/jenkins/workspace/prod/testPipeline/src/Presentation/WebApi.Admin/'
+                   // sh 'ls'
+                }
+        }
+    }
+    post {
+          success {
+             echo 'Pipeline completed successfully.'
+          }
+          failure {
+             echo 'Pipeline failed.'
+          }
+    }
+}
+
+```
+# jenkins 发布 vue shell
+```text
+cd /var/lib/jenkins/workspace/prod/admin-web-ui/admin-app/
+sudo npm install
+npm run build-only
+
+cd /var/lib/jenkins/workspace/prod/admin-web-ui/admin-app/dist/
+ls
+sudo rsync -av /var/lib/jenkins/workspace/prod/admin-web-ui/admin-app/dist/** /var/www/admin/
+exit
+```
+# jenkins 发布 java maven
+Root POM 设置pom 路径
+/var/lib/jenkins/workspace/prod/javamaven/pom.xml
+
+Goals and options 可选命令
+clean install -DskipTests
+
+shell命令
+```text
+sudo rsync -av /var/lib/jenkins/workspace/prod/javamaven/target/testweb-0.0.1-SNAPSHOT.jar /home/javaweb
+cd /home/javaweb
+#mv testweb-0.0.1-SNAPSHOT.jar testweb.jar
+#pkill -f testweb-0.0.1-SNAPSHOT.jar
+#nohup java -jar testweb-0.0.1-SNAPSHOT.jar --server.port=9002 > output.log 2>&1 &
+#或者服务启动
+#sudo systemctl --no-ask-password restart testweb.service 
+exit
+```
+# jenkins 发布 .Net
+shell命令
+```text
+cd /var/lib/jenkins/workspace/majhon/src/Presentation/WebApi.Admin
+#dotnet clean
+dotnet --info
+# 恢复依赖项
+dotnet restore
+# 构建项目
+#dotnet build --configuration Release
+dotnet publish -c Release -r win-x64
+echo "Successfully!!!! ^ please see the file ."
+
+#复制 过滤文件和文件夹
+sudo rsync -av \
+  --exclude='de' \
+  --exclude='es' \
+  --exclude='fr' \
+  --exclude='it' \
+  --exclude='ja' \
+  --exclude='ko' \
+  --exclude='pt-BR' \
+  --exclude='ru' \
+  --exclude='zh-Hans' \
+  --exclude='zh-Hant' \
+  --exclude='Logs' \
+  --exclude='runtimes' \
+  --exclude='*.json' \
+  --exclude='*.pdb' \
+  --exclude='*.config' \
+  /var/lib/jenkins/workspace/prod/maj/src/Presentation/WebApi.Admin/bin/Release/net8.0/publish/** /home/maj/
+  sudo systemctl --no-ask-password kill -s SIGKILL maj.service
+  sudo systemctl --no-ask-password start maj.service
+  sudo systemctl --no-ask-password status maj.service
+#sudo systemctl --no-ask-password restart maj.service 
+exit
+```
+部署可以选择远程SSH
+Transfer Set
+Source files
+src/Presentation/WebApi.Admin/bin/Release/net8.0/win-x64/publish/Mahjon.*
+Remove prefix
+src/Presentation/WebApi.Admin/bin/Release/net8.0/win-x64/publish
+Remote directory
+/publish
+
+发布到windows的问题
 Source files
 /var/lib/jenkins/workspace/testweb 下的路径 jenkins下wordkspace/项目目录下的 路径
 xx/xx//bin/Release/net8.0/publish/**
